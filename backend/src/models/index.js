@@ -24,17 +24,28 @@ const db = {
   Sequelize,
 };
 
-// Import models (will be created in subsequent days)
-// db.User = require('./User')(sequelize, Sequelize.DataTypes);
-// db.Class = require('./Class')(sequelize, Sequelize.DataTypes);
-// ... more models
+// Import models
+db.User = require('./User')(sequelize);
+
+// More models will be added here
+// db.Class = require('./Class')(sequelize);
+// db.Subject = require('./Subject')(sequelize);
+// db.Timetable = require('./Timetable')(sequelize);
+// db.Grade = require('./Grade')(sequelize);
+// db.Homework = require('./Homework')(sequelize);
+// db.Attendance = require('./Attendance')(sequelize);
+// db.Message = require('./Message')(sequelize);
+// db.Conversation = require('./Conversation')(sequelize);
+// db.Announcement = require('./Announcement')(sequelize);
+// db.Document = require('./Document')(sequelize);
+// db.Notification = require('./Notification')(sequelize);
 
 // Define associations
-// Object.keys(db).forEach((modelName) => {
-//   if (db[modelName].associate) {
-//     db[modelName].associate(db);
-//   }
-// });
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
 module.exports = db;
 
